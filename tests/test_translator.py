@@ -56,13 +56,13 @@ class TrackMpdFormatTest(unittest.TestCase):
 
     def test_track_to_mpd_format_with_position(self):
         result = translator.track_to_mpd_format(
-            Track(), tagtype_list.TAGTYPE_LIST, position=1
+            Track(uri="dummy:track"), tagtype_list.TAGTYPE_LIST, position=1
         )
         assert ("Pos", 1) not in result
 
     def test_track_to_mpd_format_with_tlid(self):
         result = translator.track_to_mpd_format(
-            TlTrack(1, Track()), tagtype_list.TAGTYPE_LIST
+            TlTrack(1, Track(uri="dummy:track")), tagtype_list.TAGTYPE_LIST
         )
         assert ("Id", 1) not in result
 
@@ -214,6 +214,7 @@ class TrackMpdFormatTest(unittest.TestCase):
 
 class PlaylistMpdFormatTest(unittest.TestCase):
     def test_mpd_format(self):
+        uri="dummy:playlist",
         playlist = Playlist(
             tracks=[
                 Track(uri="foo", track_no=1),
@@ -237,6 +238,7 @@ class PlaylistMpdFormatTest(unittest.TestCase):
         ]
 
     def test_mpd_format_with_range(self):
+        uri="dummy:playlist",
         playlist = Playlist(
             tracks=[
                 Track(uri="foo", track_no=1),
