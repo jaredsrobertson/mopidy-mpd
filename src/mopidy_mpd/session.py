@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING, Never, TypedDict
+from typing import TYPE_CHECKING, Any, Never, TypedDict
 
 from mopidy import listener
 from mopidy_mpd import dispatcher, formatting, network, protocol, types
@@ -75,8 +75,8 @@ class MpdSession(network.LineProtocol, listener.Listener):
 
         self.send_lines(response)
 
-    def on_event(self, subsystem: str) -> None:
-        self.dispatcher.handle_idle(subsystem)
+    def on_event(self, event: str, **kwargs: Any) -> None:
+        self.dispatcher.handle_idle(event)
 
     def decode(self, line: bytes) -> str:
         try:
