@@ -220,7 +220,7 @@ class PlaylistMpdFormatTest(unittest.TestCase):
                 Track(uri="foo", track_no=1),
                 Track(uri="bàr", track_no=2),
                 Track(uri="baz", track_no=3),
-            ]
+            ],
         )
 
         result = translator.playlist_to_mpd_format(playlist, tagtype_list.TAGTYPE_LIST)
@@ -244,7 +244,7 @@ class PlaylistMpdFormatTest(unittest.TestCase):
                 Track(uri="foo", track_no=1),
                 Track(uri="bàr", track_no=2),
                 Track(uri="baz", track_no=3),
-            ]
+            ],
         )
 
         result = translator.playlist_to_mpd_format(
