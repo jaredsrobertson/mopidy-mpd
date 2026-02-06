@@ -1,4 +1,4 @@
-from __future__ import annotations
+`from __future__ import annotations
 
 import itertools
 from typing import TYPE_CHECKING, cast
@@ -86,7 +86,7 @@ def _get_tracks(search_results: Iterable[SearchResult]) -> list[Track]:
 
 def _album_as_track(album: Album) -> Track:
     return Track(
-        uri=album.uri,
+        uri=album.uri or "",
         name=f"Album: {album.name}",
         artists=album.artists,
         album=album,
@@ -96,7 +96,7 @@ def _album_as_track(album: Album) -> Track:
 
 def _artist_as_track(artist: Artist) -> Track:
     return Track(
-        uri=artist.uri,
+        uri=artist.uri or "",
         name=f"Artist: {artist.name}",
         artists=frozenset([artist]),
     )
@@ -582,3 +582,4 @@ def readcomments(context: MpdContext, uri: Uri) -> None:
         The meaning of these depends on the codec, and not all decoder plugins
         support it. For example, on Ogg files, this lists the Vorbis comments.
     """
+`

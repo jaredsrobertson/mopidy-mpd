@@ -3,6 +3,7 @@ from __future__ import annotations
 import logging
 from typing import TYPE_CHECKING, Never, TypedDict
 
+from mopidy import listener
 from mopidy_mpd import dispatcher, formatting, network, protocol, types
 from mopidy_mpd.protocol import tagtype_list
 
@@ -22,7 +23,7 @@ class MpdSessionKwargs(TypedDict):
     connection: network.Connection
 
 
-class MpdSession(network.LineProtocol):
+class MpdSession(network.LineProtocol, listener.Listener):
     """
     The MPD client session. Keeps track of a single client session. Any
     requests from the client is passed on to the MPD request dispatcher.
