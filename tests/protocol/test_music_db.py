@@ -812,7 +812,12 @@ class MusicDatabaseListTest(protocol.BaseTestCase):
 
     def test_list_artist_should_not_return_artists_without_names(self):
         self.backend.library.dummy_find_exact_result = SearchResult(
-            tracks=[Track(uri="dummy:track", artists=[Artist(uri="dummy:artist", name="")])]
+            tracks=[
+                Track(
+                    uri="dummy:track",
+                    artists=[Artist(uri="dummy:artist", name="")],
+                )
+            ]
         )
 
         self.send_request('list "artist"')
@@ -871,7 +876,15 @@ class MusicDatabaseListTest(protocol.BaseTestCase):
 
     def test_list_albumartist_should_not_return_artists_without_names(self):
         self.backend.library.dummy_find_exact_result = SearchResult(
-            tracks=[Track(uri="dummy:track", album=Album(uri="dummy:album", artists=[Artist(uri="dummy:artist", name="")]))]
+            tracks=[
+                Track(
+                    uri="dummy:track",
+                    album=Album(
+                        uri="dummy:album",
+                        artists=[Artist(uri="dummy:artist", name="")],
+                    ),
+                )
+            ]
         )
 
         self.send_request('list "albumartist"')
@@ -933,7 +946,12 @@ class MusicDatabaseListTest(protocol.BaseTestCase):
 
     def test_list_composer_should_not_return_artists_without_names(self):
         self.backend.library.dummy_find_exact_result = SearchResult(
-            tracks=[Track(uri="dummy:track", composers=[Artist(uri="dummy:artist", name="")])]
+            tracks=[
+                Track(
+                    uri="dummy:track",
+                    composers=[Artist(uri="dummy:artist", name="")],
+                )
+            ]
         )
 
         self.send_request('list "composer"')
@@ -995,7 +1013,12 @@ class MusicDatabaseListTest(protocol.BaseTestCase):
 
     def test_list_performer_should_not_return_artists_without_names(self):
         self.backend.library.dummy_find_exact_result = SearchResult(
-            tracks=[Track(uri="dummy:track", performers=[Artist(uri="dummy:artist", name="")])]
+            tracks=[
+                Track(
+                    uri="dummy:track",
+                    performers=[Artist(uri="dummy:artist", name="")],
+                )
+            ]
         )
 
         self.send_request('list "performer"')
