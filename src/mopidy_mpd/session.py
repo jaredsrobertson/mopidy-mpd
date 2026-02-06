@@ -4,6 +4,7 @@ import logging
 from typing import TYPE_CHECKING, Any, Never, TypedDict
 
 from mopidy import listener
+
 from mopidy_mpd import dispatcher, formatting, network, protocol, types
 from mopidy_mpd.protocol import tagtype_list
 
