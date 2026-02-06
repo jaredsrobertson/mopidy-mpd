@@ -75,7 +75,7 @@ class MpdSession(network.LineProtocol, listener.Listener):
 
         self.send_lines(response)
 
-    def on_event(self, event: str, **kwargs: Any) -> None:
+    def on_event(self, event: str, **_kwargs: Any) -> None:
         self.dispatcher.handle_idle(event)
 
     def decode(self, line: bytes) -> str:
