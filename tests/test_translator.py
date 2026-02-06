@@ -214,8 +214,8 @@ class TrackMpdFormatTest(unittest.TestCase):
 
 class PlaylistMpdFormatTest(unittest.TestCase):
     def test_mpd_format(self):
-        uri="dummy:playlist",
         playlist = Playlist(
+            uri="dummy:playlist",
             tracks=[
                 Track(uri="foo", track_no=1),
                 Track(uri="bàr", track_no=2),
@@ -238,8 +238,8 @@ class PlaylistMpdFormatTest(unittest.TestCase):
         ]
 
     def test_mpd_format_with_range(self):
-        uri="dummy:playlist",
         playlist = Playlist(
+            uri="dummy:playlist",
             tracks=[
                 Track(uri="foo", track_no=1),
                 Track(uri="bàr", track_no=2),
